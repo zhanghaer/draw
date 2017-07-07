@@ -1,24 +1,24 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "target": "es6",
+    "allowSyntheticDefaultImports": true,
     "baseUrl": "./src",
     // "sourceMap": true, // not needed when assembled with webpack
     // "watch": true, // not needed when assembled with webpack
     "pretty": true,
     "experimentalDecorators": true,
-    "jsx": "react",
+    "jsx": "preserve",
     // "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
     "noImplicitThis": true,
     "downlevelIteration": true,
-    "noEmitHelpers": true,
-    "importHelpers": true,
     "lib": [
-      "dom", "es7", "es2017"
+      "dom", "es7", "es2017", "esnext"
     ]
   },
   "awesomeTypescriptLoaderOptions": {
+    "useBabel": true,
+    "useCache": true
     /* ... */
   },
   "exclude": [

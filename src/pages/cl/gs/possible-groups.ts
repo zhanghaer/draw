@@ -39,10 +39,12 @@ function filterGroupsBasic(groups: Team[][], teamPicked: Team, currentPotIndex: 
   return bottom.length === 0 ? top : top.length === 0 ? bottom : bottom.concat(top)
 }
 
+const ukr = (otherTeam: Team) => otherTeam.country === 'Ukr'
+const rus = (otherTeam: Team) => otherTeam.country === 'Rus'
+const none = (otherTeam: Team) => false
+
 const extraConstraints = (teamPicked: Team) =>
-  teamPicked.country === 'Rus' ?
-    ((otherTeam: Team) => otherTeam.country === 'Ukr') : teamPicked.country === 'Ukr' ?
-    ((otherTeam: Team) => otherTeam.country === 'Rus') : (otherTeam: Team) => false
+  teamPicked.country === 'Rus' ? ukr : teamPicked.country === 'Ukr' ? rus : none
 
 function filterSomeGroups(
   groups: Team[][],

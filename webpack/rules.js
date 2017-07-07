@@ -11,6 +11,9 @@ module.exports = env => [
   {
     test: /\.tsx?$/,
     use: env === 'dev' ? tsDev : tsProd,
+    exclude: [
+      /node_modules/,
+    ],
   },
   { // global
     test: /\.css$/,
@@ -18,6 +21,9 @@ module.exports = env => [
       'style-loader',
       'css-loader',
       'postcss-loader',
+    ],
+    include: [
+      /node_modules/,
     ],
   },
   {

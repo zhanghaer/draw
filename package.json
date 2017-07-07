@@ -10,9 +10,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.1",
-    "styled-components": "^2.1.1",
-    "tslib": "^1.7.1",
-    "whatwg-fetch": "^2.0.3"
+    "styled-components": "^2.1.1"
   },
   "devDependencies": {
     "@types/classnames": "2.2.0",
@@ -23,6 +21,11 @@
     "@types/react-router-dom": "^4.0.5",
     "autoprefixer": "^7.1.1",
     "awesome-typescript-loader": "^3.2.1",
+    "babel-core": "^6.25.0",
+    "babel-plugin-styled-components": "^1.1.7",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "cssnano": "^3.10.0",
@@ -33,7 +36,7 @@
     "postcss-loader": "^2.0.6",
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.18.2",
-    "tslint": "^5.4.3",
+    "tslint": "^5.5.0",
     "tslint-react": "^3.0.0",
     "typescript": "^2.4.1",
     "url-loader": "^0.5.9",
@@ -45,7 +48,7 @@
   "scripts": {
     "build:prod": "webpack --colors --config webpack/webpack.config.js --env.ENV=prod",
     "build:test": "npm run rmdocs && webpack --colors --config webpack/webpack.config.js --env.ENV=test",
-    "rmdocs": "rm -rf docs",
+    "rmdocs": "rm -rf .awcache docs",
     "start": "npm run rmdocs && webpack-dev-server --colors --watch --config webpack/webpack.config.js --env.ENV=dev"
   },
   "repository": {

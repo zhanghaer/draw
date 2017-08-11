@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import { Team } from 'model/team'
-
+import connectWithKeys from './connectWithKeys'
 import Ball from './Ball'
 
 const Root = styled.div`
@@ -35,6 +35,21 @@ interface Props {
 }
 
 class TeamBowl extends React.PureComponent<Props> {
+
+  onKeyDown = (e: React.KeyboardEvent<Document>) => {
+    const { props } = this
+    if (props.completed || props.calculating || props.selectedTeam || !/^(\d)$/.test(e.key)) {
+      return
+    }
+    const i = +e.key - 1
+    const {
+      pot,
+      onPick,
+    } = this.props
+    if (pot && i < pot.length) {
+      onPick(pot[i])
+    }
+  }
 
   private onBallPick = (ev: React.MouseEvent<HTMLDivElement>) => {
     const {
@@ -77,4 +92,4 @@ class TeamBowl extends React.PureComponent<Props> {
   }
 }
 
-export default TeamBowl
+export default connectWithKeys(TeamBowl)
